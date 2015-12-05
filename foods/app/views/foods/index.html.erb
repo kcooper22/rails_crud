@@ -1,8 +1,15 @@
-<%@user.foods.each do |food|%>
+<h1>FOOD</h1>
 
- <p><%= food.name %></p>
- <p><%= food.description %></p>
- <p><%= food.thoughts %></p>
+<table>
+<%@user.foods.each do |food|%>
+	<tr>
+		<td><%= food.name %></td>
+		<td><%= food.description %></td>
+		<td><%= food.thoughts %></td>
+		<td><%= link_to "Edit", edit_food_path(food.id)%></td>
+		<td><%= link_to "Delete", food_path(food.id), :method=>:delete %></td>
+	</tr>
 <%end%>
+</table>	
 
 <p><%= link_to "Add A New Food", new_food_path%></p>
